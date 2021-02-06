@@ -1,8 +1,6 @@
-//Import MySQL connection.
 const connection = require("../config/connection.js");
 const tableName = "burgers";
 
-//Helper Functions
 function printQuestionMarks(num) {
   var arr = [];
   for (var i = 0; i < num; i++) {
@@ -11,16 +9,13 @@ function printQuestionMarks(num) {
   return arr.toString();
 }
 
-//ORM
 const orm = {
-
-  selectAll : (tableName,callback) => {
+  selectAll: (tableName, callback) => {
     let queryStatement = `SELECT * FROM ${tableName};`;
-    connection.query(queryStatement, (err, result)=>{
+    connection.query(queryStatement, (err, result) => {
       if (err) throw err;
       callback(result);
     });
-
   },
 
   insertOne: (tableName, cols, vals, callback) => {
@@ -32,7 +27,7 @@ const orm = {
     });
   },
 
-  updateOne : (tableName, cols, vals, condition, callback) =>{
+  updateOne: (tableName, cols, vals, condition, callback) => {
     let queryStatement = `UPDATE ${tableName} SET ${cols.toString()} = ? WHERE ${condition}`;
     connection.query(queryStatement, vals, (err, result) => {
       if (err) throw err;
@@ -42,5 +37,4 @@ const orm = {
     });
   }
 }
-//Exports
 module.exports = orm;
