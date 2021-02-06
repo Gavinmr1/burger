@@ -17,3 +17,5 @@ app.use("/", routes);
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+
+app.use(express.favicon('./public/img/favicon.ico'));
