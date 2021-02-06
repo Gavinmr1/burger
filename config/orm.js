@@ -31,7 +31,7 @@ const orm = {
     let queryStatement = `UPDATE ${tableName} SET ${cols.toString()} = ? WHERE ${condition}`;
     connection.query(queryStatement, vals, (err, result) => {
       if (err) throw err;
-      console.log("Sucesfully Updated");
+      console.log("Successfully Updated");
       console.log("Executing Third Declared CallBack");
       callback(result);
     });
