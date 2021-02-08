@@ -6,7 +6,7 @@ const app = express();
 
 let PORT = process.env.PORT || 8080; 
 app.use(bodyParser.urlencoded({ extended: false })); 
-app.use('/', express.static(path.join(__dirname, 'dist'))) 
+app.use(express.static("public")); 
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
